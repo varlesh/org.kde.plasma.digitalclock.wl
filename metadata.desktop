@@ -1,20 +1,21 @@
 [Desktop Entry]
 Name=Digital Clock WL
-
-Comment=Time displayed in a digital format
-
-Icon=preferences-system-time
-Type=Service
-X-KDE-ParentApp=
-X-KDE-PluginInfo-Author=Martin Klapetek
-X-KDE-PluginInfo-Email=mklapetek@kde.org
-X-KDE-PluginInfo-License=GPL-2.0+
-X-KDE-PluginInfo-Name=org.kde.plasma.digitalclock.wl
-X-KDE-PluginInfo-Version=3.0
-X-KDE-PluginInfo-Website=plasma.kde.org
-X-KDE-ServiceTypes=Plasma/Applet
+Comment=Minimalistic clock with calendar
+Icon=clock
+ 
 X-Plasma-API=declarativeappletscript
-X-KDE-PluginInfo-Category=Date and Time
-X-Plasma-Provides=org.kde.plasma.time,org.kde.plasma.date
-
 X-Plasma-MainScript=ui/main.qml
+X-Plasma-DefaultSize=160,260
+ 
+X-KDE-PluginInfo-Author=Alexey Varfolomeev
+X-KDE-PluginInfo-Email=varlesh@gmail.com
+X-KDE-PluginInfo-Website=http://plasma.kde.org/
+X-KDE-PluginInfo-Category=Date and Time
+X-KDE-PluginInfo-Name=org.kde.plasma.digitalclock.wl
+X-KDE-PluginInfo-Version=0.2
+ 
+X-KDE-PluginInfo-Depends=
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+X-KDE-ServiceTypes=Plasma/Applet,Plasma/PopupApplet
+Type=Service

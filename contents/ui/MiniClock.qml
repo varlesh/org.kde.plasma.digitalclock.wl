@@ -24,30 +24,28 @@ import QtQuick 2.0
 import QtQuick.Layouts 1.1
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.plasmoid 2.0
-import "calendar" as LocalCalendar
 
 Item {
-    id: root
+    id: mainWindow
     Layout.minimumWidth: 16
     Layout.minimumHeight: 16
-    Plasmoid.backgroundHints: Plasmoid.Background
-    Plasmoid.preferredRepresentation: Plasmoid.compactRepresentation
-    Plasmoid.compactRepresentation: MiniClock { }
+    property string textColor: Plasmoid.configuration.textColor
+    property string textFont: Plasmoid.configuration.textFont
     
-    PlasmaCore.DataSource {
-        id: dataSource
-        engine: "time"
-        connectedSources: ["Local"]
-        interval: 500
+    Text {
+        id: time
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        font.bold: true
+        color: theme.textColor
+        minimumPointSize: 11
+        font.pointSize: 1000
+        fontSizeMode: Text.Fit
+        text: Qt.formatTime( dataSource.data["Local"]["DateTime"],"h:mm" )
+        anchors.fill: parent
     }
-    
-    Plasmoid.fullRepresentation: LocalCalendar.MonthView {
-        Layout.minimumWidth: units.gridUnit * 20
-        Layout.minimumHeight: units.gridUnit * 20
-
-        today: dataSource.data["Local"]["DateTime"]
-
-        borderOpacity: 0
-        circleStyle: true
+    MouseArea {
+        anchors.fill: parent
+        onClicked: plasmoid.expanded = !plasmoid.expanded
     }
 }
