@@ -36,12 +36,11 @@ Item {
         id: time
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
-        font.bold: true
+        font.weight: plasmoid.configuration.bold ? Font.Bold : Font.Normal
         color: theme.textColor
-        minimumPointSize: 11
-        font.pointSize: 1000
-        fontSizeMode: Text.Fit
-        text: Qt.formatTime( dataSource.data["Local"]["DateTime"],"h:mm" )
+        font.pixelSize: plasmoid.configuration.clockFontSize
+        font.pointSize: -1
+        text: Qt.formatTime( dataSource.data["Local"]["DateTime"]," h:mm  " )
         anchors.fill: parent
     }
     MouseArea {

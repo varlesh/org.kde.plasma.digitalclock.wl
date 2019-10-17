@@ -171,7 +171,26 @@ Item {
             //SEE QTBUG-58307
             Layout.preferredHeight: implicitHeight + implicitHeight%2
         }
+        
+        Components.ToolButton {
+        id: pinButton
+        anchors.right: parent.right
+        width: Math.round(units.gridUnit * 1.25)
+        height: width
+        checkable: true
+        iconSource: "window-pin"
+        checked: plasmoid.configuration.pin
+        onCheckedChanged: plasmoid.configuration.pin = checked
+        tooltip: i18n("Keep Open")
+            
+        }
     }
+    
+    Binding {
+            target: plasmoid
+            property: "hideOnWindowDeactivate"
+            value: !plasmoid.configuration.pin
+        }
 
     // Paints the inner grid and the outer frame
     Canvas {
