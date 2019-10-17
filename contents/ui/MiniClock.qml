@@ -27,7 +27,7 @@ import org.kde.plasma.plasmoid 2.0
 
 Item {
     id: mainWindow
-    Layout.minimumWidth: 16
+    Layout.minimumWidth: Plasmoid.configuration.marginSize
     Layout.minimumHeight: 16
     property string textColor: Plasmoid.configuration.textColor
     property string textFont: Plasmoid.configuration.textFont
@@ -40,7 +40,7 @@ Item {
         color: theme.textColor
         font.pixelSize: plasmoid.configuration.clockFontSize
         font.pointSize: -1
-        text: Qt.formatTime( dataSource.data["Local"]["DateTime"]," h:mm  " )
+        text: Qt.formatTime( dataSource.data["Local"]["DateTime"],"h:mm" )
         anchors.fill: parent
     }
     MouseArea {

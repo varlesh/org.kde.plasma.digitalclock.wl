@@ -6,8 +6,11 @@
     <kcfgfile name=""/>
 
     <group name="Appearance">
+        <entry name="marginSize" type="Int">
+            <default>48</default>
+        </entry>
         <entry name="clockFontSize" type="Int">
-            <default>17</default>
+            <default>18</default>
         </entry>
         <entry name="bold" type="Bool">
             <default>true</default>
