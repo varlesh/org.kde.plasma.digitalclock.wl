@@ -173,16 +173,14 @@ Item {
         }
         
         Components.ToolButton {
-        id: pinButton
-        anchors.right: parent.right
-        width: Math.round(units.gridUnit * 1.25)
-        height: width
-        checkable: true
-        iconSource: "window-pin"
-        checked: plasmoid.configuration.pin
-        onCheckedChanged: plasmoid.configuration.pin = checked
-        tooltip: i18n("Keep Open")
-            
+            id: pinButton
+            iconName: "window-pin"
+            checkable: true
+            checked: plasmoid.configuration.pin
+            onCheckedChanged: plasmoid.configuration.pin = checked
+            tooltip: i18n("Keep Open")
+            //SEE QTBUG-58307
+            Layout.preferredHeight: implicitHeight + implicitHeight%2
         }
     }
     
